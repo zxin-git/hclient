@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="debug">
+
+	<Property name="log.base" value="log/" />
+
+	<!--console -->
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%date{yyyyMMdd HHmmss SSS}][%-5p][%t][%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="stdout"/>
+	</root>
+    
+</configuration>

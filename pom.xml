@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zxin.java.common</groupId>
+  <artifactId>hclient</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  
+  <!-- 定义公共资源版本 -->
+	<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.14.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+
+    <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <package.path>com/**</package.path>		         
+    </properties>
+
+	<dependencies>
+		<dependency>  
+		    <groupId>org.slf4j</groupId>  
+		    <artifactId>slf4j-api</artifactId>  
+		</dependency>
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <scope>test</scope>
+		</dependency>
+	
+     	<dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.6</version>
+		</dependency>
+        
+        <dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+	</dependencies>
+  
+  	<build>
+ 	    <plugins>
+ 	    	<!-- 编译插件 -->
+ 	    	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+ 	    	
+			<!-- 打包jar插件  -->
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>${package.path}</include>
+					</includes>
+				</configuration>
+			</plugin>
+			
+			<!-- 打包source-jar插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>${package.path}</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+	    </plugins>
+	</build>
+	
+	<distributionManagement>
+	    <repository>
+	        <id>rdc-releases</id>
+	        <url>https://repo.rdc.aliyun.com/repository/51575-release-85Z3hd/</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>rdc-snapshots</id>
+	        <url>https://repo.rdc.aliyun.com/repository/51575-snapshot-SDPJfj/</url>
+	    </snapshotRepository>
+	</distributionManagement>
+</project>
