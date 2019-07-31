@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.umpay.dps.common.http.client;
+package com.zxin.java.common.http.client;
 
 import static org.junit.Assert.*;
 

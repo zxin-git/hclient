@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.umpay.dps.common.http.request;
+package com.zxin.java.common.http.request;
 
 import org.junit.Test;
 import org.slf4j.Logger;
